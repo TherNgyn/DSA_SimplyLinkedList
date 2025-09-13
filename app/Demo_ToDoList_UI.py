@@ -1,7 +1,13 @@
 import streamlit as st
 import locale
 
-locale.setlocale(locale.LC_COLLATE, 'Vietnamese_Vietnam.1258')
+try:
+    locale.setlocale(locale.LC_COLLATE, 'Vietnamese_Vietnam.1258')  # Windows
+except locale.Error:
+    try:
+        locale.setlocale(locale.LC_COLLATE, 'vi_VN.UTF-8')  
+    except locale.Error:
+        locale.setlocale(locale.LC_COLLATE, '')  #
 
 class Node:
     def __init__(self, task=None):
