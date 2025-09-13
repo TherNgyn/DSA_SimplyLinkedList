@@ -12,3 +12,8 @@
 streamlit run .\app\Demo_ToDoList_UI.py
 ```
 Dừng chạy app: Ctrl + C
+
+3. Chạy app trên cloud: 
+```bash
+https://todolistapp2025.streamlit.app/
+```
