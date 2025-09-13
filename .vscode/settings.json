@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.py": "python",
+        "*.ipynb": "python",
+        "iostream": "cpp",
+        "ostream": "cpp"
+    },
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.defaultPackageManager": "ms-python.python:pip",
+    "python-envs.pythonProjects": []
+}
