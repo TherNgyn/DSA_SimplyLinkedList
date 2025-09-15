@@ -38,6 +38,7 @@ int getMiddle_Naive(Node* head){
             current = current -> next;
         }
         int middle = length/2;
+        
         for(int i = 0; i<middle; i++){
             head = head->next;
         }
@@ -58,13 +59,13 @@ int getMiddle_HareTortoise(Node* head){
 int main(){
     SinglyLinkedList singlyll;
     CreateList(singlyll);
-    //HEAD --> 1-- > 2 --> 3 --> 4 --> 5 --> 6
+    //HEAD --> 1 --> 2 --> 3 --> 4 --> NULL
     Node* head = CreateNode(1);
     head->next = CreateNode(2);
     head->next->next = CreateNode(3);
     head->next->next->next = CreateNode(4);
-    head->next->next->next->next = CreateNode(5);
-    head->next->next->next->next->next = CreateNode(6);
+    
+
     singlyll.head = head;
     cout<<"Danh sách liên kết đơn: ";
     printList(singlyll.head);

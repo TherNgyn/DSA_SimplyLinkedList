@@ -61,10 +61,10 @@ int main(){
     cout<<"Danh sách liên kết đơn trước khi đảo ngược: ";
     printList(singlyll.head);
     cout<<endl;
-    cout<<"Danh sách liên kết đơn sau khi đảo ngược dùng Iterative: ";
-    singlyll.head = reverseList_Iterative(singlyll.head);
-    printList(singlyll.head);
-    cout<<endl;
+    //cout<<"Danh sách liên kết đơn sau khi đảo ngược dùng Iterative: ";
+    //singlyll.head = reverseList_Iterative(singlyll.head);
+    //printList(singlyll.head);
+    //cout<<endl;
     cout<<"Danh sách liên kết đơn sau khi đảo ngược dùng Đệ quy: ";
     singlyll.head = reverseList_Recursion(singlyll.head);
     printList(singlyll.head);
