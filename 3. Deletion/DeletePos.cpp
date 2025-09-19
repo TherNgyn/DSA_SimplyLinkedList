@@ -10,24 +10,48 @@ public:
         next = nullptr;
     }
 };
+int len(Node *head) {
+    int dem = 0;
+    while (head != NULL) {
+        ++dem;
+        head = head->next; // cho head chuyển sang node kế tiếp
+    }
+    return dem;
+}
 
 Node* deleteNode(Node* head, int position) {
+    // Kiểm tra vị trí hợp lệ
+    if (position < 1 || position > len(head)) {
+        cout << "Vi tri khong hop le!" << endl;
+        return head;
+    }
+
     Node* temp = head;
+
+    // Trường hợp xoá node đầu tiên
     if (position == 1) {
         head = temp->next;
         delete temp;
         return head;
     }
-    // Duyệt đến node trước node cần xóa
+
+    // Trường hợp xoá tại các vị trí khác
     Node* prev = nullptr;
-    for (int i = 1; i < position; i++) {
-        prev = temp;
+    // Duyệt đến node trước node cần xoá
+    for (int i = 1; i < position - 1; i++) { 
         temp = temp->next;
     }
-    prev->next = temp->next; // Nối node trước với node sau, bỏ qua node cần xóa.
+
+    prev = temp;
+    temp = temp->next;
+
+    // Bỏ qua node cần xoá
+    prev->next = temp->next;
     delete temp; // Giải phóng bộ nhớ node cần xoá
+
     return head;
 }
+
 void printList(Node* head) {
     while (head != nullptr) {
         cout << head->data << " -> ";
