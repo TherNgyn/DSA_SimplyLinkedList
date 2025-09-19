@@ -65,29 +65,7 @@ def getMiddle_HareTortoise(head):
         fast = fast.next.next
     return slow
 
-def merge(left, right):
-    if not left:
-        return right
-    if not right:
-        return left
-    
-    if locale.strcoll(left.task.lower(), right.task.lower()) <= 0:
-        result = left
-        result.next = merge(left.next, right)
-    else:
-        result = right
-        result.next = merge(left, right.next)
-    return result
 
-def mergeSort(head):
-    if not head or not head.next:
-        return head
-    middle = getMiddle_HareTortoise(head)
-    next_to_middle = middle.next
-    middle.next = None
-    left = mergeSort(head)
-    right = mergeSort(next_to_middle)
-    return merge(left, right)
 # Đảo danh sách 
 def reverseList(head):
     prev = None
@@ -161,22 +139,16 @@ else:
             # st.experimental_rerun()
 
 st.subheader("Chức năng khác")
-col1, col2 = st.columns(2)
 
-if col1.button("Đảo ngược danh sách"):
+if st.button("Đảo ngược danh sách"):
     if st.session_state.todo_head:
         st.session_state.todo_head = reverseList(st.session_state.todo_head)
+        st.rerun()
         #st.success
         #st.experimental_rerun()
     else:
         st.warning("Chưa có công việc cần làm.")
-
-if col2.button("Sắp xếp danh sách theo A - Z"):
-    if st.session_state.todo_head:
-        st.session_state.todo_head = mergeSort(st.session_state.todo_head)
-        #st.experimental_rerun()
-    else:
-        st.warning("Chưa có công việc cần làm.")
+         
 
 st.markdown("-----"*50)
 #st.caption("Ứng dụng sử dụng cấu trúc dữ liệu Danh sách Liên kết Đơn")
